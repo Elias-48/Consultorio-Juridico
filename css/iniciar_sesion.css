@@ -1,0 +1,169 @@
+/* === VARIABLES GLOBALES === */
+:root {
+  --color-fondo-claro: #fafafa;
+  --color-borde: #ccc;
+  --color-borde-oscuro: #aaa;
+  --color-gris: #ddd;
+  --color-negro: black;
+  --radio-borde: 4px;
+  --radio-boton: 6px;
+  --padding-seccion: 40px 20px;
+  --ancho-max-img: 400px;
+  --sombra-hover: scale(1.1);
+}
+
+/* === SECCIÓN PRINCIPAL DE LOGIN === */
+.login-main {
+  padding: 40px;
+}
+
+.login-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden verticalmente si no caben */
+  justify-content: center;
+  align-items: center; /* Centrado vertical */
+  gap: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.login-form {
+  flex: 1;
+  max-width: 400px;
+}
+
+.login-form h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-borde);
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-gris);
+  border: 1px solid var(--color-borde-oscuro);
+  border-radius: var(--radio-boton);
+  cursor: pointer;
+}
+
+.login-form p {
+  margin-top: 15px;
+}
+
+.registrarse-link {
+  text-decoration: underline;
+  color: var(--color-negro);
+}
+
+/* Imagen del lado del formulario de login */
+.login-image img {
+  max-width: var(--ancho-max-img);
+  height: auto;
+  margin-top: 50px; /* Puedes ajustar si quieres bajarla más */
+}
+
+/* === SECCIÓN DE OFICINAS === */
+/* Estilos base */
+.oficinas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+  padding: var(--padding-seccion);
+  background-color: var(--color-fondo-claro);
+  text-align: center;
+}
+
+.oficinas > div {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+/* Estilos para móviles */
+@media screen and (max-width: 768px) {
+  .oficinas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .oficinas > div {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* === SECCIÓN DE CONTACTO === */
+.contacto {
+  padding: var(--padding-seccion);
+  text-align: center;
+}
+
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+/* Texto y contenido de contacto */
+.contacto-texto,
+.contacto-imagen {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contacto-imagen img {
+  width: 100%;
+  max-width: var(--ancho-max-img);
+  height: auto;
+}
+
+/* Imagen inferior (decorativa o informativa) */
+.contacto img {
+  margin-top: 20px;
+  max-width: var(--ancho-max-img);
+  width: 100%;
+  height: 200px;
+}
+
+/* === BOTÓN "VOLVER ARRIBA" === */
+#btnSubir {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#btnSubir img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+#btnSubir:hover img {
+  transform: var(--sombra-hover);
+}

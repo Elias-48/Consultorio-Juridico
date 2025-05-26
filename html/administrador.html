@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/administrador.css"/>
+</head>
+<body>
+
+  <!-- Reutilizar header (navegación) -->
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="../img/logo.webp" alt="Logo del despacho" class="logo-img">
+    </div>
+
+    <nav class="menu-principal">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu-hamburguesa">
+      <button id="menuToggle">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <ul id="menuOpciones" class="menu-oculto">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <div class="container">
+    <aside class="perfil">
+      <div class="foto-perfil" id="upload-zone">
+  <input type="file" id="input-foto" accept="image/*" hidden />
+  <img id="imagen-preview" src="placeholder.png" alt="Foto del abogado" />
+  <button id="eliminar-foto" style="display: none;">Eliminar Foto</button>
+</div>
+      <div class="info-perfil">
+        <strong>Administrador</strong>
+        <p>admin@legal.com</p>
+      </div>
+    </aside>
+
+    <main class="contenido">
+      <section class="tabla-contenedor">
+  <h2>Usuarios</h2>
+  <table id="tablaUsuarios">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Contraseña</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Tipo de Cliente</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se llenarán los usuarios desde localStorage -->
+    </tbody>
+        </table>
+      </section>
+
+      <section class="tabla-contenedor">
+  <h2>Abogados</h2>
+  <table id="tablaAbogados">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Contraseña</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Aquí se llenarán los abogados desde localStorage -->
+    </tbody>
+    <tbody>
+        </table>
+      </section>
+
+      <section class="tabla-contenedor">
+  <h2>Casos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Cliente</th>
+        <th>Especialidad</th>
+        <th>Abogado</th>
+        <th>Estado</th>
+        <th>Agregar caso</th>
+        <th>Finalizar caso</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila de ejemplo -->
+      <tr>
+        <td>Divorcio</td>
+        <td>Proceso contencioso</td>
+        <td>María Pérez</td>
+        <td>Familia</td>
+        <td>Dr. García</td>
+        <td>En espera</td>
+        <td><a href="#">Agregar caso</a></td>
+        <td><a href="#">Finalizar caso</a></td>
+        <td><a href="#">Editar</a></td>
+        <td><a href="#">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="tabla-contenedor">
+  <h2>Citas</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Caso</th>
+        <th>Cliente</th>
+        <th>Abogado</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Estado</th>
+        <th>Agregar Cita</th>
+        <th>Rechazar Cita</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Fila de ejemplo -->
+      <tr>
+        <td>Divorcio</td>
+        <td>María Pérez</td>
+        <td>Dr. García</td>
+        <td>2025-06-01</td>
+        <td>10:00 AM</td>
+        <td>En espera</td>
+        <td><a href="#">Agregar Cita</a></td>
+        <td><a href="#">Rechazar Cita</a></td>
+        <td><a href="#">Editar</a></td>
+        <td><a href="#">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Formulario para registrar abogados -->
+<h2>REGISTRAR ABOGADOS</h2>
+<form id="formAbogado" onsubmit="registrarAbogado(event)">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" required><br>
+
+  <label for="apellido">Apellido:</label>
+  <input type="text" id="apellido" required><br>
+
+  <label for="correo">Correo:</label>
+  <input type="email" id="correo" required><br>
+
+  <label for="contrasena">Contraseña:</label>
+  <input type="password" id="contrasena" required><br>
+
+  <label for="direccion">Dirección:</label>
+  <input type="text" id="direccion" required><br>
+
+  <label for="telefono">Teléfono:</label>
+  <input type="tel" id="telefono" required><br>
+
+  <button type="submit">Registrar Abogado</button>
+</form>
+
+<!-- Botón de cerrar sesión -->
+<div class="cerrar-sesion-contenedor">
+  <button id="cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</button>
+</div>
+
+
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../img/logo.webp" alt="Logo" class="logo-pie-pagina">
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Botón de Subida -->
+<button id="btnSubir" title="Subir al inicio">
+  <img src="../img/flecha.webp" alt="Subir" />
+</button>
+
+<script>
+    // === Lógica del menú hamburguesa ===
+    document.getElementById("menuToggle").addEventListener("click", function () {
+        const menu = document.getElementById("menuOpciones");
+        menu.classList.toggle("menu-visible");
+    });
+
+    // Cierre del menú al hacer clic fuera de él
+    window.addEventListener("click", function (e) {
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("menuOpciones");
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove("menu-visible");
+        }
+    });
+
+    // === Lógica para la foto de perfil ===
+    const inputFoto = document.getElementById('input-foto');
+    const imagenPreview = document.getElementById('imagen-preview');
+    const eliminarBtn = document.getElementById('eliminar-foto');
+    const zona = document.getElementById('upload-zone');
+
+    let fotoCargada = false;
+    let botonVisible = false;
+
+    zona.addEventListener('click', function () {
+        if (!fotoCargada) {
+            inputFoto.click();
+        } else {
+            botonVisible = !botonVisible;
+            eliminarBtn.style.display = botonVisible ? 'block' : 'none';
+        }
+    });
+
+    inputFoto.addEventListener('change', function () {
+        const archivo = this.files[0];
+        if (archivo) {
+            const lector = new FileReader();
+            lector.onload = function (e) {
+                imagenPreview.src = e.target.result;
+                fotoCargada = true;
+                botonVisible = false;
+                eliminarBtn.style.display = 'none';
+            };
+            lector.readAsDataURL(archivo);
+        }
+    });
+
+    eliminarBtn.addEventListener('click', function (event) {
+        event.stopPropagation();
+        imagenPreview.src = 'placeholder.png';
+        inputFoto.value = '';
+        fotoCargada = false;
+        botonVisible = false;
+        eliminarBtn.style.display = 'none';
+    });
+
+    // === Lógica para la carga de abogados y usuarios ===
+    document.addEventListener("DOMContentLoaded", () => {
+        cargarAbogados();
+        cargarUsuarios();
+    });
+
+    function registrarAbogado(e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const apellido = document.getElementById("apellido").value;
+        const correo = document.getElementById("correo").value;
+        const contrasena = document.getElementById("contrasena").value;
+        const direccion = document.getElementById("direccion").value;
+        const telefono = document.getElementById("telefono").value;
+
+        const nuevoAbogado = {
+            nombre,
+            apellido,
+            correo,
+            contrasena,
+            direccion,
+            telefono
+        };
+
+        let abogados = JSON.parse(localStorage.getItem("abogados")) || [];
+        abogados.push(nuevoAbogado);
+        localStorage.setItem("abogados", JSON.stringify(abogados));
+
+        document.getElementById("formAbogado").reset();
+        cargarAbogados();
+    }
+
+    function cargarAbogados() {
+        const tabla = document.querySelector("#tablaAbogados tbody");
+        tabla.innerHTML = "";
+
+        const abogados = JSON.parse(localStorage.getItem("abogados")) || [];
+
+        abogados.forEach((abogado, index) => {
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${abogado.nombre}</td>
+                <td>${abogado.apellido}</td>
+                <td>${abogado.correo}</td>
+                <td>${abogado.contrasena}</td> <td>${abogado.direccion}</td>
+                <td>${abogado.telefono}</td>
+                <td><a href="#" onclick="editarAbogado(${index})">Editar</a></td>
+                <td><a href="#" onclick="eliminarAbogado(${index})">Eliminar</a></td>
+            `;
+
+            tabla.appendChild(fila);
+        });
+    }
+
+    function editarAbogado(index) {
+        alert("Funcionalidad de edición de abogado no implementada aún.");
+        // Aquí iría la lógica para editar un abogado
+    }
+
+    function eliminarAbogado(index) {
+        let abogados = JSON.parse(localStorage.getItem("abogados")) || [];
+        abogados.splice(index, 1);
+        localStorage.setItem("abogados", JSON.stringify(abogados));
+        cargarAbogados();
+    }
+
+    function cargarUsuarios() {
+        const tabla = document.getElementById("tablaUsuarios").querySelector("tbody");
+        tabla.innerHTML = "";
+
+        const listaUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        listaUsuarios.forEach((usuario, index) => {
+            const fila = document.createElement("tr");
+
+            fila.innerHTML = `
+                <td>${usuario.nombre}</td>
+                <td>${usuario.apellido || ""}</td>
+                <td>${usuario.correo}</td>
+                <td>${usuario.contrasena}</td> <td>${usuario.direccion}</td>
+                <td>${usuario.telefono}</td>
+                <td>${usuario.tipo}</td>
+                <td><a href="#" onclick="editarUsuario(${index})">Editar</a></td>
+                <td><a href="#" onclick="eliminarUsuario(${index})">Eliminar</a></td>
+            `;
+
+            tabla.appendChild(fila);
+        });
+    }
+
+    function editarUsuario(index) {
+        alert("Funcionalidad de edición de usuario no implementada aún.");
+        // Aquí iría la lógica para editar un usuario
+    }
+
+    function eliminarUsuario(index) {
+        let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+        usuarios.splice(index, 1);
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        cargarUsuarios();
+    }
+
+    // === Lógica para el botón "Cerrar sesión" ===
+    function cerrarSesion() {
+        // Podrías decidir si quieres limpiar todos los datos o solo la sesión del admin
+        localStorage.removeItem("abogados"); // Si quieres borrar abogados al cerrar sesión
+        localStorage.removeItem("usuarios"); // Si quieres borrar usuarios al cerrar sesión
+        localStorage.removeItem("usuarioRegistrado"); // Si el admin también usa esto
+        window.location.href = "iniciar_sesion.html"; // Redirige al login
+    }
+
+    // === Lógica para el botón "Subir" ===
+    const btnSubir = document.getElementById("btnSubir");
+    const footer = document.querySelector(".footer");
+    const scrollThreshold = 200;
+
+    window.addEventListener("scroll", () => {
+        if (document.documentElement.scrollTop > scrollThreshold) {
+            btnSubir.style.display = "block";
+        } else {
+            btnSubir.style.display = "none";
+        }
+
+        const scrollBottom = document.documentElement.scrollHeight - (window.innerHeight + document.documentElement.scrollTop);
+        const footerHeightWithMargin = footer.offsetHeight + 30 + 20; // 30px del bottom original + 20px de margen extra
+
+        if (scrollBottom < footerHeightWithMargin) {
+            btnSubir.style.bottom = `${footerHeightWithMargin - scrollBottom}px`;
+        } else {
+            btnSubir.style.bottom = "30px"; // Vuelve a su posición fija original
+        }
+    });
+
+    btnSubir.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+    </main>
+  </div>
+</body>
+</html>

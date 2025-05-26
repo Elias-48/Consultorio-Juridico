@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel del Abogado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/abogado.css" />
+</head>
+<body>
+
+  <!-- Reutilizar header (navegación) -->
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="../img/logo.webp" alt="Logo del despacho" class="logo-img">
+    </div>
+
+    <nav class="menu-principal">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu-hamburguesa">
+      <button id="menuToggle">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <ul id="menuOpciones" class="menu-oculto">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <div class="container">
+    <!-- Perfil del abogado -->
+    <aside class="perfil">
+      <div class="foto-perfil" id="upload-zone">
+  <input type="file" id="input-foto" accept="image/*" hidden />
+  <img id="imagen-preview" src="placeholder.png" alt="Foto del abogado" />
+  <button id="eliminar-foto" style="display: none;">Eliminar Foto</button>
+</div>
+      <h2>Nombre</h2>
+      <p><strong>Especialidad:</strong> Derecho Civil</p>
+    </aside>
+
+    <!-- Tablas -->
+    <main class="contenido">
+      <section class="tablas">
+        <div class="tabla-casos">
+          <h3>Casos Asignados</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>CASO</th>
+                <th>CLIENTE</th>
+                <th>ESTADO</th>
+                <th>RESULTADO</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- filas de ejemplo -->
+              <tr><td>001</td><td>Juan Pérez</td><td>Abierto</td><td>En proceso</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="tabla-citas">
+          <h3>Citas Programadas</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>CASO</th>
+                <th>CLIENTE</th>
+                <th>FECHA</th>
+                <th>HORA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>001</td><td>Juan Pérez</td><td>20/05/2025</td><td>10:00 AM</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Subir expediente -->
+      <section class="expediente">
+        <h2>EXPEDIENTE JUDICIAL</h2>
+        <label for="caso">Título del Caso:</label>
+        <select id="caso">
+          <option>Seleccione un caso</option>
+          <option>Expediente 001</option>
+        </select>
+
+        <div class="upload-box" onclick="document.getElementById('archivo-expediente').click();">
+          <p>⬆️ <strong>SUBIR ARCHIVO DE EXPEDIENTE</strong></p>
+          <p>Archivos PDF, PPTX, JPG, PNG, MP3, MP4</p>
+          <input type="file" id="archivo-expediente" accept=".pdf,.pptx,.jpg,.png,.mp3,.mp4" hidden />
+        </div>
+
+        <button class="btn">Enviar expediente</button>
+      </section>
+
+      <!-- Botones inferiores -->
+      <div class="botones-inferiores">
+        <button class="cerrar-sesion">Cerrar Sesión</button>
+        <button class="abrir-chatbot">💬 Chat con Empresa</button>
+      </div>
+    </main>
+  </div>
+
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../img/logo.webp" alt="Logo" class="logo-pie-pagina">
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Botón de Subida -->
+<button id="btnSubir" title="Subir al inicio">
+  <img src="../img/flecha.webp" alt="Subir" />
+</button>
+
+  <script>
+  const inputFoto = document.getElementById('input-foto');
+  const imagenPreview = document.getElementById('imagen-preview');
+  const eliminarBtn = document.getElementById('eliminar-foto');
+  const zona = document.getElementById('upload-zone');
+
+  let fotoCargada = false;
+  let botonVisible = false;
+
+  zona.addEventListener('click', function () {
+    if (!fotoCargada) {
+      inputFoto.click(); // Si no hay imagen, abrir selector
+    } else {
+      // Si hay imagen, alternar visibilidad del botón rojo
+      botonVisible = !botonVisible;
+      eliminarBtn.style.display = botonVisible ? 'block' : 'none';
+    }
+  });
+
+  inputFoto.addEventListener('change', function () {
+    const archivo = this.files[0];
+    if (archivo) {
+      const lector = new FileReader();
+      lector.onload = function (e) {
+        imagenPreview.src = e.target.result;
+        fotoCargada = true;
+        botonVisible = false; // No mostrar botón al cargar imagen
+        eliminarBtn.style.display = 'none';
+      };
+      lector.readAsDataURL(archivo);
+    }
+  });
+
+  eliminarBtn.addEventListener('click', function (event) {
+    event.stopPropagation(); // Evita que dispare clic en zona
+    imagenPreview.src = 'placeholder.png';
+    inputFoto.value = '';
+    fotoCargada = false;
+    botonVisible = false;
+    eliminarBtn.style.display = 'none';
+  });
+
+  const btnSubir = document.getElementById("btnSubir");
+
+  window.addEventListener("scroll", () => {
+    if (document.documentElement.scrollTop > 200) {
+      btnSubir.style.display = "block";
+    } else {
+      btnSubir.style.display = "none";
+    }
+  });
+
+  btnSubir.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

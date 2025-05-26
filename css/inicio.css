@@ -1,0 +1,203 @@
+/* ============================= */
+/* HERO: Sección principal con imagen y contenido destacado */
+/* ============================= */
+
+.hero {
+  display: flex;
+  flex-direction: column; /* Ordena elementos en columna en móviles */
+  align-items: center;
+  padding: 5% 3%;
+  gap: 2rem;
+}
+
+.hero-img {
+  position: relative; /* Necesario para posicionar el texto sobre la imagen */
+}
+
+.hero-img img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Escala la imagen para que cubra su contenedor */
+}
+
+/* Título superpuesto en la imagen */
+.titulo-hero {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente para legibilidad */
+  padding: 10px 20px;
+  border-radius: 8px;
+  z-index: 2;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hero-content {
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.5rem; 
+  font-weight: 700; 
+  color: #333; 
+  margin-bottom: 0.5rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
+}
+
+.hero-content h2 {
+  font-size: 1.3rem; 
+  font-weight: 400; 
+  color: #666; 
+  margin-bottom: 2rem; 
+  font-style: italic; 
+  line-height: 1.4; 
+  text-transform: none;
+  letter-spacing: 0px; 
+}
+
+/* Botón de llamada a la acción */
+.btn-cta {
+  padding: 0.8em 1.5em;
+  background-color: #845A44;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave para transform y color de fondo */
+  display: inline-block;
+}
+
+.btn-cta:hover {
+  transform: scale(1.05); /* Agranda el botón un 5% */
+  background-color: #845A44; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================= */
+/* MEDIA QUERIES: Ajustes en pantallas más grandes */
+/* ============================= */
+
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row; /* Imagen y contenido lado a lado */
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  .hero-img,
+  .hero-content {
+    flex: 1;
+    max-width: 50%; /* Divide la pantalla en dos mitades */
+  }
+
+  .hero-content h1 {
+      font-size: 3.2rem;
+  }
+  .hero-content h2 {
+      font-size: 1.5rem;
+  }
+}
+
+/* ============================= */
+/* ESPECIALIDADES: Sección con áreas destacadas */
+/* ============================= */
+
+.especialidades {
+  text-align: center;
+  padding: 5% 3%;
+}
+
+/* Contenedor de las áreas en grilla */
+.areas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Diseño responsivo para mostrar 2 o 4 columnas */
+@media (min-width: 600px) {
+  .areas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .areas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tarjeta individual del área */
+.area {
+  padding: 2%;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en tarjetas */
+.area:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen dentro de cada tarjeta */
+.img-area {
+  width: 100%;
+  aspect-ratio: 2 / 4; /* Mantiene proporción vertical */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* Imagen que cubre completamente el contenedor */
+.img-area img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Zoom suave en la imagen al hacer hover */
+.area:hover .img-area img {
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* BOTÓN SUBIR (Scroll al inicio de página) */
+/* ============================= */
+
+#btnSubir {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Mantenemos fixed por defecto */
+  bottom: 30px; /* Distancia inicial desde abajo */
+  right: 30px;
+  z-index: 100;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#btnSubir img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de agrandamiento al pasar el cursor */
+#btnSubir:hover img {
+  transform: scale(1.1);
+}

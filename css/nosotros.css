@@ -1,0 +1,148 @@
+/* === VARIABLES GLOBALES === */
+:root {
+  --fuente-general: 'Arial', sans-serif;
+  --color-gris: #666;
+  --color-negro: black;
+  --radio-portada: 10px;
+  --radio-miembro: 50%;
+  --ancho-btn-subir: 50px;
+  --escala-hover: scale(1.1);
+}
+
+/* === ESTILO GENERAL === */
+body {
+  margin: 0;
+  font-family: var(--fuente-general);
+}
+
+main {
+  padding: 5% 4%;
+}
+
+/* === SECCIÓN "NOSOTROS" === */
+.nosotros {
+  text-align: center;
+}
+
+.nosotros h1 {
+  font-size: 24px;
+}
+
+.nosotros p {
+  color: var(--color-gris);
+  margin-bottom: 1.5rem;
+}
+
+.img-portada {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radio-portada); /* Bordes redondeados de imagen principal */
+  object-fit: cover; /* Ajusta imagen sin distorsión */
+}
+
+/* === SECCIÓN "EQUIPO" === */
+.equipo {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.equipo h2 {
+  font-size: 22px;
+  margin-bottom: 2rem;
+}
+
+.miembros {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Espacio entre miembros */
+}
+
+.miembro {
+  width: 120px;
+  text-align: center;
+}
+
+.miembro img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radio-miembro); /* Forma circular */
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.miembro h3 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.miembro p {
+  font-size: 12px;
+  color: var(--color-gris);
+}
+
+/* === MEDIA QUERY PARA PANTALLAS GRANDES === */
+@media (min-width: 768px) {
+  .nosotros h1 {
+    font-size: 32px;
+  }
+
+  .equipo h2 {
+    font-size: 28px;
+  }
+
+  .miembro {
+    width: 160px;
+  }
+
+  .miembro img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .miembro h3 {
+    font-size: 16px;
+  }
+
+  .miembro p {
+    font-size: 14px;
+  }
+}
+
+/* === BOTÓN "VOLVER ARRIBA" === */
+#btnSubir {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Mantenemos fixed por defecto */
+  bottom: 30px; /* Distancia inicial desde abajo */
+  right: 30px;
+  z-index: 100;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#btnSubir img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de agrandamiento al pasar el cursor */
+#btnSubir:hover img {
+  transform: scale(1.1);
+}
+
+
+/* ZOOM EN LAS IMAGENES  */
+.miembro img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.miembro img:hover {
+  transform: scale(1.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}

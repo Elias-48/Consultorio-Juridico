@@ -1,0 +1,163 @@
+/* === VARIABLES GLOBALES === */
+:root {
+  --color-fondo-oficinas: #fafafa;
+  --color-gris-boton: #ccc;
+  --color-borde-boton: #aaa;
+  --radio-boton: 5px;
+  --radio-input: 4px;
+  --tamano-img-max: 500px;
+  --fuente-principal: 'Arial', sans-serif;
+  --color-texto-gris: #666;
+  --btn-subir-size: 50px;
+  --btn-hover-scale: scale(1.1);
+}
+
+/* === CONTENEDOR DE REGISTRO === */
+.registro-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+  justify-content: space-around;
+  padding: 40px 20px;
+}
+
+/* === FORMULARIO DE REGISTRO === */
+.formulario {
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+}
+
+.formulario h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.formulario form {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos uno debajo del otro */
+}
+
+/* Campo de entrada de texto */
+.formulario input {
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  border-radius: var(--radio-input);
+}
+
+/* Grupo de botones de radio */
+.radio-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Botón de envío */
+button {
+  padding: 10px;
+  background-color: var(--color-gris-boton);
+  border: 1px solid var(--color-borde-boton);
+  border-radius: var(--radio-boton);
+  cursor: pointer;
+}
+
+/* === IMAGEN AL LADO DEL FORMULARIO === */
+.imagen {
+  margin-top: 100px; /* Puedes ajustar el valor según lo que necesites */
+}
+
+.imagen img {
+  width: 100%;
+  max-width: var(--tamano-img-max);
+  height: auto;
+}
+
+/* === SECCIÓN DE OFICINAS === */
+/* Estilos base */
+.oficinas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap; /* Permite que los elementos se acomoden en varias líneas */
+  padding: var(--padding-seccion);
+  background-color: var(--color-fondo-claro);
+  text-align: center;
+}
+
+.oficinas > div {
+  flex: 1;
+  min-width: 250px;
+  margin: 10px;
+}
+
+/* Estilos para móviles */
+@media screen and (max-width: 768px) {
+  .oficinas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .oficinas > div {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+/* === SECCIÓN DE CONTACTO === */
+.contacto {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contacto-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: left;
+}
+
+.contacto-texto,
+.contacto-imagen {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contacto-imagen img,
+.contacto img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.contacto img {
+  margin-top: 20px;
+  height: 200px; /* Imagen inferior */
+}
+
+/* === BOTÓN "VOLVER ARRIBA" === */
+#btnSubir {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Mantenemos fixed por defecto */
+  bottom: 30px; /* Distancia inicial desde abajo */
+  right: 30px;
+  z-index: 100;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+#btnSubir img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto de agrandamiento al pasar el cursor */
+#btnSubir:hover img {
+  transform: scale(1.1);
+}

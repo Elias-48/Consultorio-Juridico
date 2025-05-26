@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <link rel="stylesheet" href="../css/iniciar_sesion.css" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+  <!-- Reutiliza tu header (navegación) -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="../img/logo.webp" alt="Logo del despacho" class="logo-img">
+      </div>
+
+      <nav class="menu-principal">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+      </nav>
+
+      <nav class="menu-hamburguesa">
+        <button id="menuToggle">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <ul id="menuOpciones" class="menu-oculto">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="registro.html">Registrarse</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="login-main">
+    <section class="login-container">
+      <form class="login-form">
+        <h1>INICIAR SESIÓN</h1>
+        <label for="correo">Correo</label>
+        <input type="email" id="correo" placeholder="Ingresa tu correo" required>
+
+        <label for="contrasena">Contraseña</label>
+        <input type="password" id="contrasena" placeholder="Ingresa tu contraseña" required>
+
+        <button type="submit">Iniciar sesión</button>
+
+        <p>¿No tienes una cuenta?
+          <a href="registro.html" class="registrarse-link">Regístrate</a>
+        </p>
+      </form>
+
+      <div class="login-image">
+        <img src="../img/CuestionarioRegistrarse.webp" alt="Imagen de login">
+      </div>
+    </section>
+  </main>
+
+  <section class="oficinas">
+    <div>
+      <h4>Nuestras Oficinas</h4>
+      <p>Encuentra nuestras oficinas ahora en 2 ciudades y no dudes en visitarnos</p>
+    </div>
+    <div>
+      <h4>Nuevo Chimbote</h4>
+      <p>Contry<br>Plaza de Armas<br>Ovalo la Familia</p>
+    </div>
+    <div>
+      <h4>San Jacinto</h4>
+      <p>Pin Pon Alto<br>San Francisco<br>San Martin</p>
+    </div>
+  </section>
+
+  <section class="contacto">
+    <div class="contacto-container">
+      <div class="contacto-texto">
+        <h2>¿Tienes dudas o deseas comunicarte directamente?</h2>
+        <p><strong>Correo:</strong> consultorio@utp.edu.pe</p>
+        <p><strong>Teléfono:</strong> (01) 123-4567</p>
+        <p><strong>WhatsApp:</strong> +51 972 154 855</p>
+        <p><strong>Dirección:</strong> Av. Panamericana, Nuevo Chimbote, Perú</p>
+      </div>
+      <div class="contacto-imagen">
+        <img src="../img/Contacto.webp" alt="Contacto">
+      </div>
+    </div>
+  </section>
+</body>
+
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../img/logo.webp" alt="Logo" class="logo-pie-pagina">
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- Botón de Subida -->
+<button id="btnSubir" title="Subir al inicio">
+  <img src="../img/flecha.webp" alt="Subir" />
+</button>
+
+<script>
+  document.getElementById("menuToggle").addEventListener("click", function () {
+    menu = document.getElementById("menuOpciones");
+    menu.classList.toggle("menu-visible");
+  });
+
+  // cerrar menú al hacer clic fuera de él
+  window.addEventListener("click", function (e) {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menuOpciones");
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove("menu-visible");
+    }
+  });
+
+
+  document.querySelector(".login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const correoIngresado = document.getElementById("correo").value.trim();
+    const contrasenaIngresada = document.getElementById("contrasena").value.trim();
+
+    // Verifica si es un abogado
+    const abogados = JSON.parse(localStorage.getItem("abogados")) || [];
+    const abogadoEncontrado = abogados.find(
+      abogado => abogado.correo === correoIngresado && abogado.contrasena === contrasenaIngresada
+    );
+
+    if (abogadoEncontrado) {
+      window.location.href = "abogados.html";
+      return;
+    }
+
+    // Verifica si es un usuario registrado
+    const datosGuardados = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+
+    if (!datosGuardados) {
+      alert("No hay un usuario registrado. Por favor regístrate primero.");
+      return;
+    }
+
+    if (correoIngresado === datosGuardados.correo && contrasenaIngresada === datosGuardados.contrasena) {
+      window.location.href = "cliente.html";
+    } else {
+      alert("Correo o contraseña incorrectos. Intenta nuevamente.");
+    }
+  });
+
+  // === CÓDIGO PARA EL BOTÓN SUBIR ===
+  const btnSubir = document.getElementById("btnSubir");
+  const footer = document.querySelector(".footer"); // Seleccionamos el footer
+  const scrollThreshold = 200; // Distancia de scroll para mostrar/ocultar el botón
+
+
+  window.addEventListener("scroll", () => {
+    // Mostrar/Ocultar el botón si el scroll supera el umbral
+    if (document.documentElement.scrollTop > scrollThreshold) {
+      btnSubir.style.display = "block";
+    } else {
+      btnSubir.style.display = "none";
+    }
+
+    // Calcular la posición del botón en relación con el footer
+    // scrollBottom es la distancia desde el final de la página hasta el final de la ventana visible
+    const scrollBottom = document.documentElement.scrollHeight - (window.innerHeight + document.documentElement.scrollTop);
+    // Sumamos 30px (bottom inicial del botón) + 20px (margen adicional de seguridad)
+    const footerHeightWithMargin = footer.offsetHeight + 30 + 20;
+
+    // Si estamos lo suficientemente cerca del footer, ajustamos la posición del botón
+    if (scrollBottom < footerHeightWithMargin) {
+      btnSubir.style.bottom = `${footerHeightWithMargin - scrollBottom}px`;
+    } else {
+      // Si no, el botón vuelve a su posición `fixed` normal
+      btnSubir.style.bottom = "30px";
+    }
+  });
+
+  btnSubir.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,393 @@
+/* ============================= */
+/* RESET BÁSICO: Elimina márgenes y paddings por defecto */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* ESTILOS GENERALES DEL CUERPO */
+/* ============================= */
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: #333;
+  background-color: #fff;
+}
+
+/* ============================= */
+/* HEADER: Encabezado del sitio */
+/* ============================= */
+.header {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 1% 0%;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header:hover {
+  background-color: #e9e9e9;
+
+}
+
+/* Contenedor del header: centro y espacio entre elementos */
+.header-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+
+
+/* Logo dentro del header */
+.logo-img {
+  width: 100px;
+  /* Tamaño fijo para el logo */
+  height: auto;
+  max-width: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover para el logo del header */
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* MENÚ PRINCIPAL (ESCRITORIO) */
+/* ============================= */
+.menu-principal {
+  display: none;
+  /* Oculto por defecto (en móvil) */
+}
+
+.menu-principal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* Alinea los elementos horizontalmente */
+}
+
+.menu-principal ul li {
+  margin-left: 20px;
+  /* Espacio entre enlaces */
+}
+
+.menu-principal ul li a {
+  text-decoration: none;
+  color: #333;
+  /* Color base del enlace */
+  font-weight: bold;
+  padding: 10px 5px;
+  position: relative;
+  /* Para la línea inferior animada */
+  transition: color 0.4s ease;
+  /* Transición para el color */
+}
+
+/* Línea inferior para hover/focus */
+.menu-principal ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #555;
+  /* Color de la línea (gris oscuro) */
+  transform: scaleX(0);
+  /* Empieza oculta */
+  transform-origin: bottom right;
+  transition: transform 0.4s ease-out;
+  /* Transición suave */
+}
+
+/* Efecto al pasar el cursor (hover) */
+.menu-principal ul li a:hover {
+  color: #000;
+  /* Color del texto al pasar el cursor */
+}
+
+.menu-principal ul li a:hover::after {
+  transform: scaleX(1);
+  /* Muestra la línea */
+  transform-origin: bottom left;
+}
+
+/* Efecto al enfocar (focus) - para accesibilidad */
+.menu-principal ul li a:focus {
+  outline: 2px solid #555;
+  /* Un borde sutil para foco */
+  outline-offset: 3px;
+  color: #000;
+}
+
+/* Efecto al hacer clic (active) */
+.menu-principal ul li a:active {
+  color: #28a745;
+  /* Color verde al hacer clic (como el CTA) */
+  transform: scale(0.98);
+  /* Ligero encogimiento */
+}
+
+/* ============================= */
+/* MENÚ HAMBURGUESA PARA MÓVILES */
+/* ============================= */
+.menu-hamburguesa {
+    position: relative;
+    display: block; /* Muestra el botón de hamburguesa por defecto */
+    text-align: right;
+}
+
+/* Botón del menú hamburguesa */
+.menu-hamburguesa button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+/* Ícono del botón (Material Symbols) */
+.menu-hamburguesa button .material-symbols-outlined {
+    font-size: 40px; /* Asegura que el ícono sea visible */
+    color: black;
+}
+
+
+/* Lista de enlaces del menú hamburguesa */
+.menu-hamburguesa ul {
+    position: absolute;
+    top: 50px;
+    right: 0; /* Asegura que el menú desplegable esté a la derecha */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Oculto por defecto */
+    z-index: 10;
+}
+
+/* Ítems del menú */
+.menu-hamburguesa ul li {
+    padding: 10px 20px;
+}
+
+/* Enlaces del menú */
+.menu-hamburguesa ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    display: block; /* Asegura que ocupe todo el li */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover sobre los ítems del menú */
+.menu-hamburguesa ul li:hover {
+    background-color: #e9e9e9;
+}
+
+.menu-hamburguesa ul li a:hover {
+    color: #000;
+}
+
+/* Mostrar menú cuando tiene clase 'menu-visible' */
+.menu-hamburguesa ul.menu-visible {
+    display: block;
+}
+
+/* ============================= */
+/* FOOTER: Pie de página del sitio */
+/* ============================= */
+.footer {
+    padding: 10px 0;
+    background-color: #ccc;
+    color: #222;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+    width: 100%; /* **CRUCIAL: Asegura que el footer ocupe todo el ancho** */
+}
+
+/* Efecto al pasar el mouse sobre el footer */
+.footer:hover {
+    background-color: #bbb;
+}
+
+/* Contenedor del contenido del footer */
+.footer-container {
+    display: flex;
+    flex-direction: column; /* **Por defecto, apilado en móvil** */
+    justify-content: center; /* Centra el contenido en móvil */
+    align-items: center; /* Centra los items en móvil */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%; /* Añade padding a los lados */
+    gap: 15px; /* Espacio entre logo y enlaces en móvil */
+    text-align: center; /* Asegura que el texto esté centrado en móvil */
+}
+
+/* Sección del logo dentro del footer */
+.footer-logo {
+    width: auto; /* Ajusta el ancho para que el logo se centre */
+}
+
+/* Imagen del logo en el pie de página */
+.logo-pie-pagina {
+    width: 80px; /* Tamaño fijo del logo del footer */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de zoom al pasar el mouse sobre el logo */
+.logo-pie-pagina:hover {
+    transform: scale(1.05);
+}
+
+/* Sección de enlaces en el footer */
+.footer-links {
+    width: 100%; /* Ocupa todo el ancho en móvil */
+    text-align: center; /* Centra los enlaces */
+}
+
+/* Estilos para los enlaces del footer */
+.footer-links a {
+    margin: 0 10px; /* Espacio horizontal entre enlaces */
+    text-decoration: none;
+    color: #000000;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover para los enlaces del footer */
+.footer-links a:hover {
+    text-decoration: underline;
+    color: #000;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* ============================= */
+/* ÍCONOS: Personalización de íconos tipo Material Symbols */
+/* ============================= */
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48;
+    font-size: 40px; /* Tamaño del ícono */
+    color: black;
+    cursor: pointer;
+}
+
+/* ============================= */
+/* MEDIA QUERIES PARA NAVEGACIÓN (HEADER Y FOOTER) */
+/* ============================= */
+
+@media (min-width: 768px) {
+    /* HEADER */
+    .menu-hamburguesa {
+        display: none; /* Oculta el menú hamburguesa en pantallas grandes */
+    }
+
+    .menu-principal {
+        display: block; /* Muestra el menú principal en pantallas grandes */
+    }
+
+    .logo-img {
+        width: 120px; /* Logo un poco más grande en escritorio */
+    }
+
+    /* FOOTER */
+    .footer-container {
+        flex-direction: row; /* En escritorio, los elementos del footer están en fila */
+        justify-content: space-between; /* Distribuye el logo y los enlaces */
+        text-align: left; /* Restablece la alineación de texto para escritorio */
+    }
+
+    .footer-logo {
+        width: 30%; /* Asigna un ancho relativo para el logo en escritorio */
+    }
+
+    .footer-links {
+        width: 70%; /* Asigna un ancho relativo para los enlaces en escritorio */
+        text-align: right; /* Alinea los enlaces a la derecha */
+    }
+}
+
+/* Estilos para los enlaces del footer */
+.footer-links a {
+  margin-left: 5%;
+  text-decoration: none;
+  color: #000000;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover para los enlaces del footer */
+.footer-links a:hover {
+  text-decoration: underline;
+  color: #000;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* ============================= */
+/* ÍCONOS: Personalización de íconos tipo Material Symbols */
+/* ============================= */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+  font-size: 40px;
+  /* Tamaño del ícono */
+  color: black;
+  cursor: pointer;
+}
+
+/* ============================= */
+/* MEDIA QUERIES PARA NAVEGACIÓN */
+/* ============================= */
+
+@media (min-width: 768px) {
+
+  /* Oculta el menú hamburguesa en pantallas grandes */
+  .menu-hamburguesa {
+    display: none;
+  }
+
+  /* Muestra el menú principal en pantallas grandes */
+  .menu-principal {
+    display: block;
+  }
+
+  /* Ajusta el tamaño del logo si quieres que sea más grande en escritorio */
+  .logo-img {
+    width: 120px;
+    /* O el tamaño que prefieras */
+  }
+}

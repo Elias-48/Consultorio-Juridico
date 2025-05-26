@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/cliente.css" />
+</head>
+
+<body>
+
+  <!-- Reutilizar header (navegación) -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <img src="../img/logo.webp" alt="Logo del despacho" class="logo-img">
+      </div>
+
+      <nav class="menu-principal">
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+        </ul>
+      </nav>
+
+      <nav class="menu-hamburguesa">
+        <button id="menuToggle">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <ul id="menuOpciones" class="menu-oculto">
+          <li><a href="../index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="cliente-container">
+    <!-- Panel lateral -->
+    <aside class="perfil-cliente">
+      <div class="foto-perfil" id="upload-zone">
+        <input type="file" id="input-foto" accept="image/*" hidden />
+        <img id="imagen-preview" src="placeholder.png" alt="Foto del abogado" />
+        <button id="eliminar-foto" style="display: none;">Eliminar Foto</button>
+      </div>
+      <div class="perfil-info">
+        <h3 id="nombreCliente">Nombre</h3>
+        <p id="correoCliente">correo@ejemplo.com</p>
+      </div>
+    </aside>
+
+    <div id="menuFoto" class="menu-foto oculto">
+      <button id="cambiarFoto">Cambiar foto</button>
+      <button id="eliminarFoto">Eliminar foto</button>
+    </div>
+
+    <!-- Panel principal -->
+    <main class="contenido-principal">
+      <section class="casos">
+        <h2>Tus casos</h2>
+        <div class="categorias">
+          <div>
+            <h3>En espera del Administrador</h3>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+          </div>
+          <div>
+            <h3>Abiertos</h3>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+          </div>
+          <div>
+            <h3>Cerrados</h3>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+          </div>
+          <div>
+            <h3>Cancelados</h3>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+            <div class="card">Título del caso<br>Descripción<br>Fecha</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="citas">
+        <h2>Tus citas</h2>
+        <div class="categorias">
+          <div>
+            <h3>En espera del Administrador</h3>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+          </div>
+          <div>
+            <h3>En curso</h3>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+          </div>
+          <div>
+            <h3>Finalizadas</h3>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado</div>
+          </div>
+          <div>
+            <h3>Canceladas</h3>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado<br>Razón: Cruce de cita</div>
+            <div class="card">Título del caso<br>Fecha<br>Hora<br>Abogado asignado<br>Razón: Cruce de cita</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="acciones">
+    <div class="formulario-caso">
+      <h2><input type="checkbox" id="abrirCasoCheck"> ¿Desea abrir un caso?</h2>
+      <label for="tituloCaso">Título del caso:</label>
+      <input type="text" id="tituloCaso">
+
+      <label for="descripcionCaso">Descripción del caso:</label>
+      <textarea id="descripcionCaso" rows="4"></textarea>
+
+      <p>Tipo de especialidad:</p>
+      <div class="opciones-especialidad">
+        <label><input type="radio" name="especialidad" value="Familiar"> Derecho Familiar</label>
+        <label><input type="radio" name="especialidad" value="Civil"> Derecho Civil</label>
+        <label><input type="radio" name="especialidad" value="Laboral"> Derecho Laboral</label>
+        <label><input type="radio" name="especialidad" value="Penal"> Penal</label>
+      </div>
+
+      <label for="abogadoSelect">Seleccione abogado:</label>
+      <select id="abogadoSelect">
+        <option value="">Seleccione</option>
+      </select>
+
+      <div class="botones-formulario">
+        <button id="enviarCaso">Enviar solicitud de caso</button>
+        <button type="reset">Limpiar</button>
+      </div>
+    </div>
+
+    <div class="formulario-cita">
+      <h2><input type="checkbox" id="solicitarCitaCheck"> ¿Desea solicitar una cita?</h2>
+      <label for="casoSelect">Seleccione el caso:</label>
+      <select id="casoSelect">
+        <option value="">Seleccione</option>
+      </select>
+
+      <div class="fechahora">
+        <div>
+          <label for="fechaCita">Fecha de la cita:</label>
+          <input type="date" id="fechaCita">
+        </div>
+        <div>
+          <label for="horaCita">Hora:</label>
+          <input type="time" id="horaCita">
+        </div>
+      </div>
+
+      <label for="observaciones">Observaciones adicionales:</label>
+      <input type="text" id="observaciones">
+
+      <div class="botones-formulario">
+        <button id="enviarCita">Enviar solicitud de cita</button>
+        <button type="reset">Limpiar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón Cerrar sesión -->
+  <div class="cerrar-sesion-container">
+    <button id="cerrarSesionBtn">Cerrar sesión</button>
+  </div>
+
+  <!-- Botón Chatbot -->
+  <div id="chatbot-boton">
+    <button id="abrirChatbotBtn">💬 Chatbot</button>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="../img/logo.webp" alt="Logo" class="logo-pie-pagina">
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Botón de Subida -->
+  <button id="btnSubir" title="Subir al inicio">
+    <img src="../img/flecha.webp" alt="Subir" />
+  </button>
+
+
+<script>
+    // === Lógica del menú hamburguesa ===
+    document.getElementById("menuToggle").addEventListener("click", function () {
+        const menu = document.getElementById("menuOpciones");
+        menu.classList.toggle("menu-visible"); // Esto alterna la clase para mostrar/ocultar
+    });
+
+    // Cierre del menú al hacer clic fuera de él
+    window.addEventListener("click", function (e) {
+        const toggle = document.getElementById("menuToggle");
+        const menu = document.getElementById("menuOpciones");
+        if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.classList.remove("menu-visible");
+        }
+    });
+
+    // === Lógica para la foto de perfil ===
+    const inputFoto = document.getElementById('input-foto');
+    const imagenPreview = document.getElementById('imagen-preview');
+    const eliminarBtn = document.getElementById('eliminar-foto');
+    const zona = document.getElementById('upload-zone');
+
+    let fotoCargada = false;
+    let botonVisible = false;
+
+    // Cuando se hace clic en la zona de la foto
+    zona.addEventListener('click', function () {
+        if (!fotoCargada) {
+            inputFoto.click(); // Si no hay imagen, abre el selector de archivos
+        } else {
+            // Si ya hay imagen, alterna la visibilidad del botón de eliminar
+            botonVisible = !botonVisible;
+            eliminarBtn.style.display = botonVisible ? 'block' : 'none';
+        }
+    });
+
+    // Cuando se selecciona un archivo de imagen
+    inputFoto.addEventListener('change', function () {
+        const archivo = this.files[0];
+        if (archivo) {
+            const lector = new FileReader();
+            lector.onload = function (e) {
+                imagenPreview.src = e.target.result; // Muestra la imagen seleccionada
+                fotoCargada = true; // Marca que hay una foto cargada
+                botonVisible = false; // Oculta el botón de eliminar después de cargar
+                eliminarBtn.style.display = 'none';
+            };
+            lector.readAsDataURL(archivo); // Lee el archivo como URL de datos
+        }
+    });
+
+    // Cuando se hace clic en el botón de eliminar foto
+    eliminarBtn.addEventListener('click', function (event) {
+        event.stopPropagation(); // Evita que el clic se propague a la zona de carga
+        imagenPreview.src = 'placeholder.png'; // Restaura la imagen por defecto
+        inputFoto.value = ''; // Limpia el input del archivo
+        fotoCargada = false; // Marca que no hay foto cargada
+        botonVisible = false; // Oculta el botón de eliminar
+        eliminarBtn.style.display = 'none';
+    });
+
+    // === Lógica para el nombre y correo del cliente ===
+    const datos = JSON.parse(localStorage.getItem("usuarioRegistrado"));
+    if (datos) {
+        document.getElementById("nombreCliente").textContent = datos.nombre || "Nombre";
+        document.getElementById("correoCliente").textContent = datos.correo;
+    }
+
+    // === Lógica para el botón "Cerrar sesión" ===
+    document.getElementById("cerrarSesionBtn").addEventListener("click", () => {
+        localStorage.removeItem("usuarioRegistrado"); // Elimina los datos del usuario
+        window.location.href = "../index.html"; // Redirige a la página de inicio
+    });
+
+    // === Lógica para el botón "Abrir Chatbot" ===
+    document.getElementById("abrirChatbotBtn").addEventListener("click", () => {
+        alert("Abriendo chat con el equipo de atención al cliente..."); // Mensaje de alerta simple
+    });
+
+    // === Lógica para los botones "Subir" y "Chatbot" al hacer scroll ===
+    const btnSubir = document.getElementById("btnSubir");
+    const chatbotBoton = document.getElementById("chatbot-boton"); // Selecciona el contenedor del botón chatbot
+    const footer = document.querySelector(".footer"); // Selecciona el footer para calcular su posición
+    const scrollThreshold = 200; // Distancia de scroll para mostrar/ocultar el botón "Subir"
+
+    window.addEventListener("scroll", () => {
+        // Mostrar/Ocultar el botón "Subir" basado en el scroll
+        if (document.documentElement.scrollTop > scrollThreshold) {
+            btnSubir.style.display = "block";
+        } else {
+            btnSubir.style.display = "none";
+        }
+
+        // Calcula la distancia desde la parte inferior de la página hasta el final de la ventana visible
+        const scrollBottom = document.documentElement.scrollHeight - (window.innerHeight + document.documentElement.scrollTop);
+
+        // Define la altura del footer más el margen que queremos que cada botón mantenga por encima
+        const footerHeightForSubir = footer.offsetHeight + 70 + 20; // 70px del `bottom` original + 20px de margen
+        const footerHeightForChatbot = footer.offsetHeight + 20 + 20; // 20px del `bottom` original + 20px de margen
+
+        // Ajusta la posición del botón "Subir" si está cerca del footer
+        if (scrollBottom < footerHeightForSubir) {
+            btnSubir.style.bottom = `${footerHeightForSubir - scrollBottom}px`;
+        } else {
+            btnSubir.style.bottom = "70px"; // Vuelve a su posición fija original
+        }
+
+        // Ajusta la posición del botón "Chatbot" si está cerca del footer
+        if (scrollBottom < footerHeightForChatbot) {
+            chatbotBoton.style.bottom = `${footerHeightForChatbot - scrollBottom}px`;
+        } else {
+            chatbotBoton.style.bottom = "20px"; // Vuelve a su posición fija original
+        }
+    });
+
+    // === Lógica para el clic en el botón "Subir" ===
+    btnSubir.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Desplaza suavemente al inicio de la página
+    });
+</script>
+
+</body>
+
+</html>

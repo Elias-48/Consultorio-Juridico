@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Despacho de Abogados</title>
+
+  <!-- METADATOS BÁSICOS -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="ATR & Asociados" />
+<meta name="keywords" content="abogados, derecho, legal, penal, civil, laboral, familiar, asesoría legal" />
+<meta name="description" content="Despacho de abogados especializados en derecho penal, civil, laboral y familiar. Atención personalizada y resultados efectivos." />
+
+<!-- METADATOS PARA REDES SOCIALES (Open Graph) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ATR & Asociados" />
+<meta property="og:description" content="Abogados que responden, resultados que respaldan. Solicita tu cita gratuita." />
+<meta property="og:image" content="img/inicio.webp" />
+
+<!-- OPCIONAL: METADATOS PARA TWITTER -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="ATR & Asociados" />
+<meta name="twitter:description" content="Despacho legal con profesionales especializados. Agenda tu cita gratuita." />
+<meta name="twitter:image" content="img/inicio.webp" />
+
+<!-- ÍCONOS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+
+<!-- ESTILOS -->
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/inicio.css" />
+</head>
+
+
+<body>
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="img/logo.webp" alt="Logo del despacho" class="logo-img">
+    </div>
+
+    <nav class="menu-principal">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="./html/nosotros.html">Nosotros</a></li>
+        <li><a href="./html/servicios.html">Servicios</a></li>
+        <li><a href="./html/registro.html">Registrarse</a></li>
+        <li><a href="./html/iniciar_sesion.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu-hamburguesa">
+      <button id="menuToggle">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <ul id="menuOpciones" class="menu-oculto">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="./html/nosotros.html">Nosotros</a></li>
+        <li><a href="./html/servicios.html">Servicios</a></li>
+        <li><a href="./html/registro.html">Registrarse</a></li>
+        <li><a href="./html/iniciar_sesion.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-img">
+    <img src="img/inicio.webp" alt="Imagen del despacho" />
+  </div>
+  <div class="hero-content">
+    <h1>ATR & Asociados</h1> 
+    <h2>"ABOGADOS QUE RESPONDEN, RESULTADOS QUE RESPALDAN"</h2>
+    <a href="./html/registro.html" class="btn-cta">Solicita tu cita gratuita</a>
+  </div>
+</section>
+
+    <section class="especialidades">
+      <h2>Áreas de especialidad</h2>
+      <div class="areas">
+        <div class="area">
+          <div class="img-area">
+            <img src="img/SaulGoodman.webp" alt="Saul Goodman">
+          </div>
+          <h3>PENAL</h3>
+          <p>Saul Goodman</p>
+        </div>
+        <div class="area">
+          <div class="img-area">
+            <img src="img/HarveySpecter.webp" alt="Harvey Specter">
+          </div>
+          <h3>CIVIL</h3>
+          <p>Harvey Specter</p>
+        </div>
+        <div class="area">
+          <div class="img-area">
+            <img src="img/MattMurdock.webp" alt="Matt Murdock">
+          </div>
+          <h3>LABORAL</h3>
+          <p>Matt Murdock</p>
+        </div>
+        <div class="area">
+          <div class="img-area">
+            <img src="img/MikeRandall.webp" alt="Mike Randall">
+          </div>
+          <h3>FAMILIAR</h3>
+          <p>Mike Randall</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="img/logo.webp" alt="Logo" class="logo-pie-pagina">
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="./html/nosotros.html">Nosotros</a>
+      <a href="./html/servicios.html">Servicios</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón de Subida -->
+<button id="btnSubir" title="Subir al inicio">
+  <img src="img/flecha.webp" alt="Subir" />
+</button>
+
+<script>
+  document.getElementById("menuToggle").addEventListener("click", function () {
+    const menu = document.getElementById("menuOpciones");
+    menu.classList.toggle("menu-visible");
+  });
+
+  // Opcional: cerrar menú al hacer clic fuera de él
+  window.addEventListener("click", function (e) {
+    const toggle = document.getElementById("menuToggle");
+    const menu = document.getElementById("menuOpciones");
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.remove("menu-visible");
+    }
+  });
+
+  const btnSubir = document.getElementById("btnSubir");
+  const footer = document.querySelector(".footer"); // Seleccionamos el footer
+  const scrollThreshold = 200; // Distancia de scroll para mostrar/ocultar el botón
+
+  window.addEventListener("scroll", () => {
+    //Mostrar/Ocultar el botón solo si está en la parte superior
+    if (document.documentElement.scrollTop > scrollThreshold) {
+      btnSubir.style.display = "block";
+    } else {
+      btnSubir.style.display = "none";
+    }
+
+    //Calcular la posición del botón en relación con el footer
+    const scrollBottom = document.documentElement.scrollHeight - (window.innerHeight + document.documentElement.scrollTop);
+    const footerHeightWithMargin = footer.offsetHeight + 30 + 20; // Altura del footer + bottom del botón + margen
+
+    // Si el scrollBottom (distancia del final de la página) es menor que la altura del footer con margen,
+    // significa que estamos lo suficientemente cerca del footer como para que el botón lo toque.
+    if (scrollBottom < footerHeightWithMargin) {
+      // Ajusta la posición del botón para que esté "pegado" al footer
+      btnSubir.style.bottom = `${footerHeightWithMargin - scrollBottom}px`;
+    } else {
+      // Si no estamos cerca del footer, el botón vuelve a su posición `fixed` normal
+      btnSubir.style.bottom = "30px";
+    }
+  });
+
+  btnSubir.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+</body>
+</html>

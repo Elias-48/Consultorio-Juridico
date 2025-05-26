@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios - Estudio Juridico</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/servicios.css" />
+</head>
+  <body>
+
+  <!-- Reutilizar header (navegación) -->
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="../img/logo.webp" alt="Logo del despacho" class="logo-img">
+    </div>
+
+    <nav class="menu-principal">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="registro.html">Registrarse</a></li>
+        <li><a href="iniciar_sesion.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu-hamburguesa">
+      <button id="menuToggle">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <ul id="menuOpciones" class="menu-oculto">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="registro.html">Registrarse</a></li>
+        <li><a href="iniciar_sesion.html">Iniciar Sesión</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="servicios">
+      <h1>Servicios</h1>
+      <p>Especialidades Jurídicas que atendemos:</p>
+
+      <div class="servicio">
+        
+  <img src="../img/penal.webp" alt="Derecho Penal">
+  <div class="info">
+    <h2><span class="material-symbols-outlined animated-service-icon">gavel</span> DERECHO PENAL</h2>
+    <p>Brindamos asesoramiento y defensa en todas las etapas del proceso penal, desde la investigación preliminar hasta la etapa judicial y apelaciones. Nuestro equipo está preparado para asumir la defensa técnica de personas investigadas o acusadas por delitos como homicidio, robo, lesiones, violencia familiar, abuso sexual, estafa, extorsión, entre otros. Además, orientamos a las víctimas en la presentación de denuncias, medidas de protección y búsqueda de justicia. Nos comprometemos con una defensa penal efectiva, ética y con respeto a los derechos fundamentales.</p>
+  </div>
+</div>
+
+<div class="servicio">
+  <img src="../img/civil.webp" alt="Derecho Civil">
+  <div class="info">
+    <h2><span class="material-symbols-outlined animated-service-icon">balance</span> DERECHO CIVIL</h2>
+    <p>Ofrecemos una atención integral en asuntos relacionados con contratos civiles, propiedad, bienes, herencias y obligaciones. Asesoramos en la elaboración y revisión de contratos de compraventa, arrendamiento, donación y préstamo. También intervenimos en procesos de saneamiento físico-legal de inmuebles, prescripción adquisitiva y rectificación de partidas. En el ámbito sucesorio, guiamos a nuestros clientes en particiones, testamentos, declaratorias de herederos y resolución de conflictos hereditarios. Nuestro objetivo es proteger su patrimonio y brindar soluciones jurídicas sólidas.</p>
+  </div>
+</div>
+
+<div class="servicio">
+  <img src="../img/laboral.webp" alt="Derecho Laboral">
+  <div class="info">
+    <h2><span class="material-symbols-outlined animated-service-icon">work</span> DERECHO LABORAL</h2>
+    <p>Defendemos los derechos de trabajadores y empleadores en conflictos derivados de la relación laboral. En el caso de trabajadores, nos especializamos en casos de despido arbitrario, falta de pago de beneficios sociales (CTS, gratificaciones, vacaciones), hostigamiento laboral y accidentes de trabajo. Para empleadores, brindamos asesoría preventiva para evitar contingencias legales y acompañamos en procesos judiciales laborales. También gestionamos conciliaciones y negociaciones ante las autoridades laborales. Nuestra experiencia garantiza un enfoque equilibrado y estratégico.</p>
+  </div>
+</div>
+
+<div class="servicio">
+  <img src="../img/familiar.webp" alt="Derecho Familiar">
+  <div class="info">
+    <h2><span class="material-symbols-outlined animated-service-icon">family_restroom</span> DERECHO FAMILIAR</h2>
+    <p>Atendemos con sensibilidad y compromiso los asuntos que involucran relaciones familiares y personales. Nos especializamos en procesos de divorcio por mutuo acuerdo o vía judicial, tenencia de menores, pensión de alimentos, régimen de visitas y filiación. Ofrecemos orientación en temas de violencia familiar y medidas de protección, así como en la elaboración de convenios familiares. Entendemos que estas situaciones requieren no solo conocimientos legales, sino también empatía y confidencialidad, por lo que acompañamos a nuestros clientes en cada paso del proceso.</p>
+  </div>
+</div>
+
+    </section>
+  </main>
+
+<!-- Pie de página -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="../img/logo.webp" alt="Logo" class="logo-pie-pagina">
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="servicios.html">Servicios</a>
+    </div>
+  </div>
+</footer>
+
+
+    <!-- Botón de Subida -->
+<button id="btnSubir" title="Subir al inicio">
+  <img src="../img/flecha.webp" alt="Subir" />
+</button>
+
+<script>
+  document.getElementById("menuToggle").addEventListener("click", function () {
+  const menu = document.getElementById("menuOpciones");
+  menu.classList.toggle("menu-visible");
+  });
+
+
+
+    // ======
+    const btnSubir = document.getElementById("btnSubir");
+    const footer = document.querySelector(".footer"); // Seleccionamos el footer
+    const scrollThreshold = 200; // Distancia de scroll para mostrar/ocultar el botón
+    // =================================
+
+  window.addEventListener("scroll", () => {
+  //Mostrar/Ocultar el botón solo si está en la parte superior
+  if (document.documentElement.scrollTop > scrollThreshold) {
+    btnSubir.style.display = "block";
+  } else {
+    btnSubir.style.display = "none";
+  }
+
+  //Calcular la posición del botón en relación con el footer
+  const scrollBottom = document.documentElement.scrollHeight - (window.innerHeight + document.documentElement.scrollTop);
+  const footerHeightWithMargin = footer.offsetHeight + 30 + 20; // Altura del footer + bottom del botón + margen
+
+  // Si el scrollBottom (distancia del final de la página) es menor que la altura del footer con margen,
+  // significa que estamos lo suficientemente cerca del footer como para que el botón lo toque.
+  if (scrollBottom < footerHeightWithMargin) {
+   // Ajusta la posición del botón para que esté "pegado" al footer
+    btnSubir.style.bottom = `${footerHeightWithMargin - scrollBottom}px`;
+  } else {
+   // Si no estamos cerca del footer, el botón vuelve a su posición `fixed` normal
+    btnSubir.style.bottom = "30px";
+  }
+  });
+
+  btnSubir.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+</body>
+</html>
